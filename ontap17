@@ -1,0 +1,77 @@
+package java19;
+
+import java.util.Scanner;
+
+public class java19 {
+public static void main(String[] args) {
+	int n;
+	double del,a,b,c,x,x1,x2;
+	Scanner sc = new Scanner(System.in);
+	
+	//dùng hàm switch case
+	do {
+		System.out.println("===== MENU =====");
+        System.out.println("1. Giải phương trình bậc 1");
+        System.out.println("2. Giải phương trình bậc 2");
+        System.out.println("0. Thoát");
+        System.out.print("Chọn: ");
+        n = sc.nextInt();
+        System.out.println("----------------------------");
+		switch (n)
+		{
+		case 1: {
+			System.out.println("công thức giải bất phương trình");
+			System.out.println("");
+			System.out.println("nhập giá trị a: ");
+			a = sc.nextDouble();
+			System.out.println("nhập giá trị b: ");
+			b = sc.nextDouble();
+			if (a == 0) {
+				if (b == 0) {
+					System.out.println("phương trình vô số nghiệm");
+				}else {
+					System.out.println("phương trình vô nghiệm");
+				}
+			}else {
+				x = -b / a;
+				System.out.println("phương trình có nghiệm là: "+ Math.round(x *100.0)/100.0);
+			}
+			break;
+		}
+		case 2: {
+			System.out.println("giải delta");
+			System.out.println("");
+			System.out.println("nhập giá trị a: ");
+			a = sc.nextDouble();
+			System.out.println("nhập giá trị b: ");
+			b = sc.nextDouble();
+			System.out.println("nhập giá trị c: ");
+			c = sc.nextDouble();
+			del = Math.pow(b,2) - 4 * a * c;
+			System.out.println("delta la: "+ del);
+			if (del > 0) {
+				x1 = (-b + Math.sqrt(del))/2*a;
+				x2 = (-b - Math.sqrt(del))/2*a;
+				System.out.println("phương trình có hai nghiệm phân biệt: x1 = "+ x1 +" ; "+"x2 = "+ x2);
+			}else {
+				if (del == 0) {
+					x = x1 = x2 = (-b)/2*a;
+					System.out.println("phương trình có nghiệm kép: x1 = x2 = "+ x);
+				}else {
+					System.out.println("phương trình vô nghiệm");
+				}
+			}
+			break;
+		}
+		case 0:
+            System.out.println("Thoát chương trình...");
+            break;
+		
+		default:
+			System.out.println("Nhập không đúng yêu cầu!!!");
+		}
+	} while (n != 0);
+	
+	sc.close();
+}
+}
